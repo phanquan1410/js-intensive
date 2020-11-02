@@ -65,29 +65,44 @@ components.loginPage = `
 </div>
 `
 components.chatPage =
-`<div class="chat-container">
-<div class="header">MindX chat</div>
-<div class="main">
-  <div class="aside-left">
-    <div class="create-conversation">
-      <button class="btn add-conversation pointer" id="createConversation">+ New conversation</button>
+  `<div class="chat-container">
+  <div class="header">MindX chat</div>
+  <div class="main">
+    <div class="aside-left">
+      <div class="create-conversation">
+        <button class="btn add-conversation pointer" id="createConversation">+ New conversation</button>
+      </div>
+      <div class="list-conversations">
+      </div>
     </div>
-    <div class="list-conversations">
+    <div class="conversation-detail">
+      <div class="conversation-title" id="conversation-title">First conversation</div>
+      <div class="list-messages">
+        <div class="message message-mine"></div>
+        <div class="message message-other"></div>
+      </div>
+      <form id="send-message-form">
+        <input type="text" placeholder="Type a message" name="message">
+        <button class="btn">Send</button>
+      </form>
     </div>
-  </div>
-  <div class="conversation-detail">
-    <div class="conversation-title" id="conversation-title">First conversation</div>
-    <div class="list-messages">
-      <div class="message message-mine"></div>
-      <div class="message message-other"></div>
-    </div>
-    <form id="send-message-form">
-      <input type="text" placeholder="Type a message" name="message">
-      <button class="btn">Send</button>
-    </form>
-  </div>
-</div>
-</div>`
+      <div class="right-aside">
+        <div class="right-aside-title">List User</div>
+        <div class="list-users"></div>
+        <div class="add-user-action">
+          <form id="add-user-form">
+            <div class="input-wrapper">
+              <input type="text" name="friendEmail" id="friendEmail" placeholder="Enter friend's email" />
+              <span id="friendEmail-error" class="error" style="display: block;"></span>
+            </div>
+            <div class="form-action-btn">
+              <button class="btn">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+  </div>`
 
 
 components.newConversationPage = `
@@ -116,3 +131,4 @@ components.newConversationPage = `
       </div>
     </div>
   </div>`
+  

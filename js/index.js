@@ -81,3 +81,9 @@ getDataFromDocs = (docs) => {
   // }
   // return arr
 }
+
+
+validateEmail = (email) => {
+  let emailPattern = /^[a-zA-Z0-9._-]{4,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return emailPattern.test(email);
+}

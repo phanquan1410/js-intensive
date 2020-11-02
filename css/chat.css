@@ -1,92 +1,102 @@
-.chat-container .header{
-  color: #fff;
-  background: #037BFE;
-  text-align: center;
-  height: 64px;
-  line-height: 64px;
-  font-size: 24px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-.chat-container .conversation-title{
+.chat-container .conversation-title {
   height: 64px;
   line-height: 64px;
   text-align: center;
   font-size: 24px;
   border-bottom: 1px solid #dbdbdb;
 }
-.chat-container .conversation-detail{
+
+.chat-container .conversation-detail {
   display: flex;
   flex-direction: column;
 }
-.chat-container .list-messages{
+
+.chat-container .list-messages {
   flex-grow: 1;
   overflow-y: auto;
 }
+
 #send-message-form {
   padding: 22px 15px;
   position: relative;
   border-top: 1px solid #dbdbdb;
 }
-#send-message-form input{
+
+#send-message-form input {
   border: none;
   width: 100%;
   outline: 0;
 }
+
 #send-message-form button {
   position: absolute;
   bottom: 14px;
   right: 10px;
 }
-.chat-container{
+
+
+
+.chat-container {
   height: 100vh;
 }
-.chat-container .main{
+
+.chat-container .main {
   height: calc(100vh - 64px);
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
   display: flex;
 }
-.chat-container .conversation-detail{
+
+.chat-container .conversation-detail {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 85%;
+  width: 80%;
 }
-.list-messages .message .message-content{
+
+.list-messages .message .message-content {
   background-color: #dbdbdb;
   padding: 10px;
   border-radius: 8px;
   max-width: 45%;
   width: max-content;
 }
-.list-messages .message.message-mine{
+
+.list-messages .message.message-mine {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
 }
-.list-messages .message.message-mine .message-content{
+
+.list-messages .message.message-mine .message-content {
   color: #fff;
   background-color: #037BFE;
 }
-.list-messages{
+
+.list-messages {
   padding: 10px;
 }
-.chat-container .aside-left{
+
+.chat-container .aside-left {
   width: 15%;
   height: 100%;
   border-right: 1px solid #dbdbdb;
-  
+
 }
-.chat-container .aside-left .create-conversation{
+
+.chat-container .aside-left .create-conversation {
   height: 64px;
   line-height: 64px;
   text-align: center;
   border-bottom: 1px solid #dbdbdb;
 }
-.chat-container .aside-left .conversation{
+
+.chat-container .aside-left .conversation {
   padding: 10px;
   cursor: pointer;
 }
 
-.chat-container .conversation.current{
+.chat-container .conversation.current {
   background-color: #c0b5b5;
   border-radius: 10px;
 }
@@ -99,10 +109,12 @@
   padding-top: 10%;
   padding-left: 10%;
 }
-.chat-container .new-conversation .btn-cancel{
+
+.chat-container .new-conversation .btn-cancel {
   background-color: #dbdbdb;
   color: black;
 }
+
 .chat-container .new-conversation input {
   padding: 12px 10px;
   border-radius: 5px;
@@ -110,6 +122,38 @@
   width: 80%;
   margin-top: 2%;
 }
+
 .chat-container .new-conversation .form-action-btn {
   margin-top: 2%;
-} 
+}
+
+.chat-container .aside-right {
+  width: 15%;
+  padding: 10px;
+  border-left: 1px solid #dbdbdb;
+}
+
+/* FOR right ASIDE ON SCREEN */
+.chat-container .right-aside {
+  width: 17%;
+  height: 100%;
+  border-left: 1px solid #dbdbdb;
+  overflow: hidden;
+}
+
+.chat-container .right-aside .right-aside-title {
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.chat-container .right-aside .add-user-action {
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.chat-container .right-aside .list-users{
+  padding: 15px;
+}

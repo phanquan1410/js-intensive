@@ -10,78 +10,45 @@
 </head>
 
 <body>
-
-  <!-- <div class="aside-left">
-        <div class="create-conversation">
-          <button class="btn cursor-pointer">+ New conversation</button>
-        </div>
-        <div class="list-conversations">
-          <div class="conversation">
-            <div class="left-conversation-title">
-              First conversation
-            </div>
-            <div class="num-of-user">
-              2 users
-            </div>
-          </div>
-          <div class="conversation">
-            <div class="left-conversation-title">
-              Second conversation
-            </div>
-            <div class="num-of-user">
-              2 users
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="conversation-detail">
-        <div class="conversation-title">First conversation</div>
-        <div class="list-messages">
-          <div class="message message-mine">
-            <div class="message-content">Hello</div>
-          </div>
-          <div class="message message-other">
-            <div class="owner">Nguyen Y Van</div>
-            <div class="message-content">Hello world</div>
-          </div>
-          <div class="room myRoomChat">
-            <div class="roomName">lalala</div>
-            <div class="num-of-user">2 users</div>
-          </div>
-        </div>
-        
-        <form id="send-message-form">
-          <input type="text" placeholder="Type a message" name="message">
-          <button class="btn">Send</button>
-        </form>
-      </div>
-    </div>
-  </div> -->
   <div class="chat-container">
-    <div class="header">MindX chat</div>
-    <div class="main">
-      <div class="new-conversation">
-        <h4 class="new-conversation-title">Create a new conversation</h4>
-        <form id="new-conversation-form">
-          <div class="new-infor">
-            <div class="input-wrapper">
-              <input type="text" name="newConversationTitle" id="newConversationTitle"
-                placeholder="Conversation name" />
-              <span id="newTitle-error" class="error" style="display: block;"></span>
-            </div>
-            <div class="input-wrapper">
-              <input type="email" name="toEmail" id="toEmail" placeholder="To Friend Email" />
-              <span id="toEmail-error" class="error" style="display: block;"></span>
-            </div>
+    <div class="header">MinX Chat App</div>
+    <div class="main" id="main">
+       <div class="left-aside">
+          <div class="create-conversation">
+             <button class="btn add-conversation pointer" id="createConversation">+ New conversation</button>
           </div>
-          <div class="form-action-btn">
-            <button type="submit" class="btn">Save</button>
-            <button class="btn btn-cancel" id="cancelCreation">Cancel</button>
+          <div class="list-conversations">
           </div>
-        </form>
-      </div>
+       </div>
+       <div class="conversation-details">
+          <div class="conversation-title" id="conversation-title"></div>
+          <div class="list-messages">
+             <div class="message message-mine"></div>
+             <div class="message message-other"></div>
+          </div>
+          <form id="send-message-form">
+             <input type="text" name="message" id="messageInput" placeholder="Type your message..."/>
+             <button class="btn" id="">Send</button>
+          </form>
+       </div>
+       <div class="right-aside">
+          <div class="right-aside-title">
+             <h3>List User</h3>
+          </div>
+          <div class="list-users"></div>
+          <div class="add-user-action">
+             <form id="add-user-form">
+                <div class="input-wrapper">
+                   <input type="text" name="friendEmail" id="friendEmail" placeholder="Enter friend's email" />
+                   <span id="friendEmail-error" class="error" style="display: block;"></span>
+                </div>
+                <div class="form-action-btn">
+                   <button class="btn">Add</button> </div>
+             </form>
+          </div>
+       </div>
     </div>
-  </div>
+ </div>
 
 </body>
 

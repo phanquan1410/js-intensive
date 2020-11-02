@@ -1,5 +1,5 @@
 const view = {}
-view.setActiveScreen = (screenName) => {
+view.setActiveScreen = (screenName, fromCreate = false) => {
   switch (screenName) {
     case 'welcomeScreen':
       document.getElementById('app').innerHTML = components.welcomPage
@@ -56,14 +56,33 @@ view.setActiveScreen = (screenName) => {
           sendMessageForm.message.value = ''
         }
       })
-      // lay cac cuoc hoi thoai ve
-      model.getConversations()
-      // lang nghe thay doi cua cac cuoc hoi thoai
-      model.listenConversationChange()    
+      if (!fromCreate) {
+        // lay cac cuoc hoi thoai ve
+        model.getConversations()
+        // lang nghe thay doi cua cac cuoc hoi thoai
+        model.listenConversationChange()
+      } else {
+        view.showCurrentConversation()
+        view.showListConversation()
+      }
       // action to create new conversation page
       let toCreateConversation = document.getElementById("createConversation");
       toCreateConversation.addEventListener("click", () => {
         view.setActiveScreen("newConversationPage");
+        //cách thứ hai để chuyển sang trang khác
+        // model.listenConversationChange()
+        // document.querySelector(".createConversation button").addEventListener('click', () => {
+        //   view.setActiveScreen('newConversation')
+        // })
+
+      });
+      //ad user to conversation action
+      const addUserForm = document.getElementById("add-user-form");
+      addUserForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let newUserMail = addUserForm.friendEmail.value;
+
+        controller.addUserToConversation(newUserMail);
       });
       break;
       //thêm cuộc trò chuyện
@@ -72,7 +91,7 @@ view.setActiveScreen = (screenName) => {
       document.getElementById('app').innerHTML = components.newConversationPage;
       let cancelCreation = document.getElementById("cancelCreation");
       cancelCreation.addEventListener("click", () => {
-        view.setActiveScreen("chatPage");
+        view.setActiveScreen('chatPage', true);
       });
       const createConversationForm = document.getElementById("new-conversation-form");
       createConversationForm.addEventListener("submit", (e) => {
@@ -86,8 +105,8 @@ view.setActiveScreen = (screenName) => {
         controller.createConversation(dataNewConversation);
 
         // reset input field on site
-        createConversationForm.newConversationTitle.value = '';
-        createConversationForm.toEmail.value = '';
+        // createConversationForm.newConversationTitle.value = '';
+        // createConversationForm.toEmail.value = '';
       });
       break;
   }
@@ -123,6 +142,7 @@ view.showCurrentConversation = () => {
     view.addMessage(oneMessage)
   }
   view.scrollToEndElm()
+  view.showListUser()
 }
 
 view.showListConversation = () => {
@@ -144,7 +164,7 @@ view.addConversation = (conversation) => {
   conversationWrapper.innerHTML =
     `
   <div class="left-conversation-title" >${conversation.title}</div>
-  <div class="num-of-user">${conversation.users.length} users</div>
+  <div class="num-of-user"><small>User:${conversation.users.length}</small></div>
   `
   //them lentren giao dien
   document.querySelector('.list-conversations')
@@ -170,4 +190,13 @@ view.addConversation = (conversation) => {
 view.scrollToEndElm = () => {
   const elm = document.querySelector('.list-messages')
   elm.scrollTop = elm.scrollHeight
+}
+
+view.showListUser = () => {
+  document.querySelector('.list-users').innerHTML = '';
+  let listUserWrapper = '';
+  for (let user of model.currentConversation.users) {
+     listUserWrapper += `<p>${user}</p>`;
+  }
+  document.querySelector('.list-users').innerHTML = listUserWrapper;
 }
